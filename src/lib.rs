@@ -14,8 +14,10 @@ pub fn atomic(attr: TokenStream, mut input: TokenStream) -> TokenStream {
         #vis struct #atomic_ident (core::sync::atomic::#atomic_int);
         impl #atomic_ident {
             #[inline(always)]
-            pub const fn new() -> Self {
-                Self(core::sync::atomic::#atomic_int::new(0))
+            pub const ZERO: Self = Self(core::sync::atomic::#atomic_int::new(0));
+            #[inline(always)]
+            pub fn new(v: #ident) -> Self {
+                Self(core::sync::atomic::#atomic_int::new(v.into()))
             }
             #[inline(always)]
             pub fn load(&self, order: core::sync::atomic::Ordering) -> #ident {

@@ -27,8 +27,7 @@ fn test_enum() {
         }
     }
     let s = Enum::B;
-    let a = AtomicEnum::new();
-    a.store(s.clone(), Ordering::Relaxed);
+    let a = AtomicEnum::new(s.clone());
     let b = a.load(Ordering::Relaxed);
     assert_eq!(s, b);
 }
@@ -51,8 +50,7 @@ fn test_struct() {
         }
     }
     let s = Struct { field: 11 };
-    let a = AtomicStruct::new();
-    a.store(s.clone(), Ordering::Relaxed);
+    let a = AtomicStruct::new(s.clone());
     let b = a.load(Ordering::Relaxed);
     assert_eq!(s, b);
 }
