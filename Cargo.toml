@@ -1,0 +1,20 @@
+[package]
+authors = ["rise0chen <rise0chen@163.com>"]
+categories = ["rust-patterns"]
+description = "Attribute macros for generating AtomicXXX"
+documentation = "https://docs.rs/atomic_macro"
+edition = "2018"
+keywords = ["atomic"]
+license-file = "LICENSE"
+name = "atomic_macro"
+readme = "README.md"
+repository = "https://github.com/rise0chen/atomic_macro"
+version = "0.1.0"
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = "1.0"
+
+[lib]
+proc-macro = true
